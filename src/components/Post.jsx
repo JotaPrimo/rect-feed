@@ -18,6 +18,16 @@ export function Post() {
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 <p><a href="#">#novoprojeto</a></p>
             </div>
+
+            <form className={styles.commentForm}>
+                <strong>Deizxe seu comentario</strong>
+                <textarea 
+                    placeholder='Deixe um comentario'
+                />
+                <footer>
+                    <button type="submit">Comentario</button>
+                </footer>
+            </form>
         </article>
     );
 } 
