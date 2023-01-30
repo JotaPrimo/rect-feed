@@ -1,3 +1,4 @@
+import { Avatar } from "./Avatar";
 import styles from "./Sidebar.module.css";
 
 export function Sidebar() {
@@ -9,10 +10,7 @@ export function Sidebar() {
         alt=""
       />
       <div className={styles.profile}>
-        <img
-          className={styles.avatar}
-          src="https://avatars.githubusercontent.com/u/63259982?v=4"
-        />
+        <Avatar src="https://github.com/JotaPrimo.png" />
         <strong>Diego Fernandes</strong>
         <span>Web Developer</span>
       </div>
