@@ -27,15 +27,20 @@ export function Post({ author, publisedAt, content }) {
     event.preventDefault();
 
     setComments([...comments, newCommentText]);
-    setNewCommentText('');
+    setNewCommentText("");
   }
 
   function handleNewComentChange() {
     setNewCommentText(event.target.value);
   }
 
-  function deleteComment(comment) {
-    console.log(`Deletar commentaio ${comment}`);
+  function deleteComment(commentToDelete) {
+     const commentWithoutDeletedOne = comments.filter(commentFilter => {
+      return commentFilter !== commentToDelete;
+    });
+
+     setComments(commentWithoutDeletedOne);
+    console.log(`Deletar comentário ${commentToDelete}`)  
   }
 
   return (
@@ -81,14 +86,15 @@ export function Post({ author, publisedAt, content }) {
           <button type="submit">Comentario</button>
         </footer>
       </form>
-
       <div className={styles.commentList}>
         {comments.map((comment) => {
-          return <Comment 
-            key={comment}
-            content={comment}
-            onDeleteComment={deleteComment}
-          />;
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              deleteComment={deleteComment}
+            />
+          );
         })}
       </div>
     </article>
