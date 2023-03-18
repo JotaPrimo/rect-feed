@@ -48,6 +48,7 @@ export function Post({ author, publisedAt, content }) {
     event.target.setCustomValidity("Esse campo é obrigatório");
   }
 
+  const isNewComentInputEmpty = newCommentText.length === 0;
   return (
     <article className={styles.post}>
       <header>
@@ -89,7 +90,7 @@ export function Post({ author, publisedAt, content }) {
           onChange={handleNewComentChange}
         />
         <footer>
-          <button type="submit" disabled={newCommentText.length === 0}>
+          <button type="submit" disabled={isNewComentInputEmpty}>
             Comentario
           </button>
         </footer>
